@@ -2,13 +2,16 @@ package com.practies.groceryapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.Menu
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import com.practies.groceryapp.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
    private  lateinit var binding: ActivityMainBinding
      lateinit var appBarConfiguration: AppBarConfiguration
@@ -20,6 +23,7 @@ class MainActivity : AppCompatActivity() {
 
            //  supportActionBar?.hide()
        setSupportActionBar(binding.appBarMain.toolbar)
+
         supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
     }
 

@@ -6,18 +6,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Adapter
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.practies.groceryapp.R
+import com.practies.groceryapp.ViewModels.GroceryViewModel
 import com.practies.groceryapp.adapters.GroceryRecyclerAdapter
 import com.practies.groceryapp.databinding.FragmentHomeBinding
 import com.practies.groceryapp.interfacess.OnItemClickListeners
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class HomeFragment : Fragment(),OnItemClickListeners {
+
 private  var _binding: FragmentHomeBinding?=null
     private val binding get() = _binding!!
+
 private lateinit var groceryAdapter:GroceryRecyclerAdapter
+
+private val groceryViewModel:GroceryViewModel by activityViewModels ()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -26,7 +34,7 @@ private lateinit var groceryAdapter:GroceryRecyclerAdapter
    _binding= FragmentHomeBinding.inflate(inflater,container,false)
 
         val  list= listOf("product1","product2","product3","product4","product5","product6","product7","product8")
-       groceryAdapter= GroceryRecyclerAdapter(list,this)
+       groceryAdapter= GroceryRecyclerAdapter(this)
 
         return  binding.root
 
@@ -35,11 +43,20 @@ private lateinit var groceryAdapter:GroceryRecyclerAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setUpView()
         binding.recyclerView.apply {
             layoutManager= GridLayoutManager(context,2)
             adapter=groceryAdapter
         }
 
+    }
+
+
+    private fun setUpView(){
+
+        groceryViewModel.productList_liveData.observe(viewLifecycleOwner){
+            groceryAdapter.differ.submitList(it)
+        }
     }
 
     override fun onItemClick(Position: Int) {

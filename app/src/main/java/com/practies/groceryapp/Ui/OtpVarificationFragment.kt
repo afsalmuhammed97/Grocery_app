@@ -10,8 +10,9 @@ import androidx.navigation.fragment.findNavController
 import com.practies.groceryapp.R
 import com.practies.groceryapp.databinding.FragmentLoginBinding
 import com.practies.groceryapp.databinding.FragmentOtpVarificationBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class OtpVarificationFragment : Fragment() {
     private  var _binding:FragmentOtpVarificationBinding?=null
     private val binding get() = _binding!!

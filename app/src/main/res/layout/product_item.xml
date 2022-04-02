@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/single_item"
+    android:layout_height="260dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:backgroundTint="@color/white"
+    app:cardCornerRadius="15dp"
+    app:cardElevation="10dp"
+    android:layout_margin="8dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="5dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/inside_card"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:backgroundTint="@color/green"
+            app:cardCornerRadius="15dp">
+            <ImageView
+                android:id="@+id/card_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/app_name" />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/productName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/inside_card"
+            android:layout_marginVertical="10dp"
+            android:gravity="center"
+            android:text="@string/product_name"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/prise_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/productName"
+            android:layout_marginVertical="10dp"
+            android:gravity="center"
+            android:text="@string/prise"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+
+        <ImageView
+            android:id="@+id/cart_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/prise_text"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="5dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/shoping_cart_icon_green" />
+
+<!--        <ImageView-->
+<!--            android:id="@+id/spacer"-->
+<!--            android:layout_width="40dp"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:layout_below="@+id/prise_text"-->
+<!--            android:layout_toStartOf="@id/remove_item"-->
+<!--            android:background="@android:color/transparent"-->
+<!--            android:contentDescription="@string/app_name" />-->
+
+        <ImageView
+            android:id="@+id/remove_item"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+
+            android:layout_below="@+id/prise_text"
+            android:layout_toStartOf="@id/item_count"
+            android:background="@color/red"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/horizontal_rule" />
+
+        <TextView
+            android:id="@+id/item_count"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/prise_text"
+            android:layout_toStartOf="@id/remove_icon"
+            android:text="@string/_0"
+            android:textAlignment="center"
+            android:textSize="26sp" />
+
+        <ImageView
+            android:id="@+id/remove_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/prise_text"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="5dp"
+            android:background="@color/green"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/add_icon" />
+
+
+
+
+
+
+
+
+    </RelativeLayout>
+</com.google.android.material.card.MaterialCardView>

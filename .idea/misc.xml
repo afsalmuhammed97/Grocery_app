@@ -11,12 +11,13 @@
         <entry key="..\:/GroceryApp/app/src/main/res/font/grocery_menu.xml" value="0.22666666666666666" />
         <entry key="..\:/GroceryApp/app/src/main/res/layout/activity_main.xml" value="0.18072916666666666" />
         <entry key="..\:/GroceryApp/app/src/main/res/layout/app_bar_main.xml" value="0.2" />
-        <entry key="..\:/GroceryApp/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/GroceryApp/app/src/main/res/layout/fragment_home.xml" value="0.12" />
         <entry key="..\:/GroceryApp/app/src/main/res/layout/fragment_item_detials.xml" value="0.2" />
         <entry key="..\:/GroceryApp/app/src/main/res/layout/fragment_login.xml" value="0.22" />
         <entry key="..\:/GroceryApp/app/src/main/res/layout/fragment_otp_varification.xml" value="0.19479166666666667" />
         <entry key="..\:/GroceryApp/app/src/main/res/layout/fragment_registration.xml" value="0.19479166666666667" />
-        <entry key="..\:/GroceryApp/app/src/main/res/layout/recycler_item.xml" value="0.15" />
+        <entry key="..\:/GroceryApp/app/src/main/res/layout/product_item.xml" value="0.33" />
+        <entry key="..\:/GroceryApp/app/src/main/res/layout/recycler_item.xml" value="0.1" />
         <entry key="..\:/GroceryApp/app/src/main/res/menu/grocery_menu.xml" value="0.15" />
       </map>
     </option>

@@ -19,4 +19,5 @@
     <string name="back">back</string>
     <string name="product_name">product name</string>
     <string name="prise">Prise per Kg</string>
+    <string name="_0">0</string>
 </resources>

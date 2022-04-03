@@ -43,10 +43,17 @@
         <action
             android:id="@+id/action_homeFragment_to_itemDetialsFragment"
             app:destination="@id/itemDetialsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_itemDetialsFragment2"
+            app:destination="@id/itemDetialsFragment" />
     </fragment>
     <fragment
         android:id="@+id/itemDetialsFragment"
-        android:name="com.practies.groceryapp.Ui.ItemDetialsFragment"
+        android:name="com.practies.groceryapp.Ui.ItemDetailsFragment"
         android:label="fragment_item_detials"
-        tools:layout="@layout/fragment_item_detials" />
+        tools:layout="@layout/fragment_item_detials" >
+        <argument
+            android:name="ProductId"
+            app:argType="integer" />
+    </fragment>
 </navigation>

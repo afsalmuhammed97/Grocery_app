@@ -36,6 +36,7 @@ private val groceryViewModel:GroceryViewModel by activityViewModels ()
         val  list= listOf("product1","product2","product3","product4","product5","product6","product7","product8")
        groceryAdapter= GroceryRecyclerAdapter(this)
 
+           groceryViewModel.getAllProductsList()
         return  binding.root
 
     }
@@ -54,12 +55,18 @@ private val groceryViewModel:GroceryViewModel by activityViewModels ()
 
     private fun setUpView(){
 
-        groceryViewModel.productList_liveData.observe(viewLifecycleOwner){
+        groceryViewModel.productListLiveData.observe(viewLifecycleOwner){
             groceryAdapter.differ.submitList(it)
         }
     }
 
     override fun onItemClick(Position: Int) {
+
+
+
+        groceryViewModel.productId= groceryAdapter.differ.currentList[Position].product_id
+
+        // val action=HomeFragmentDirections.actionHomeFragmentToItemDetialsFragment(itemId)
 
         findNavController().navigate(R.id.action_homeFragment_to_itemDetialsFragment)
     }

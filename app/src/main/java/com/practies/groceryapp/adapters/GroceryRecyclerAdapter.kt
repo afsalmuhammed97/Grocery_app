@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.practies.groceryapp.databinding.ProductItemBinding
 import com.practies.groceryapp.databinding.RecyclerItemBinding
 import com.practies.groceryapp.interfacess.OnItemClickListeners
@@ -53,7 +54,19 @@ class GroceryRecyclerAdapter(private val listener:OnItemClickListeners):Recycler
     override fun onBindViewHolder(holder: GroceryRecyclerAdapter.ItemHolder, position: Int) {
                 val item=differ.currentList[position]
 
-                 holder.binding.productName.text=item.product_name
+                           val price="${item.price}/${item.unit}"
+                   holder.binding.apply {
+                       productName.text=item.product_name
+                       priseText.text=price
+
+                   }
+
+        Glide
+            .with(holder.itemView.context)
+            .load(item.image)
+            .centerCrop()
+           // .placeholder(R.drawable.loading_spinner)
+            .into(holder.binding.cardImage)
     }
 
     override fun getItemCount()=differ.currentList.size

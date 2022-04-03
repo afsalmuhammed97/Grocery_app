@@ -20,4 +20,10 @@
     <string name="product_name">product name</string>
     <string name="prise">Prise per Kg</string>
     <string name="_0">0</string>
+    <string name="uint">unit</string>
+    <string name="add_toCart">Add to cart</string>
+    <string name="shipping_time">09AM -11AM,12PM-2PM,3PM-5PM</string>
+
+    <string name="about_this_product">About this product</string>
+    <string name="about">An elegant jug to keep you just an arm distance away from water</string>
 </resources>

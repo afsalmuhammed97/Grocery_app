@@ -34,14 +34,18 @@ private  var _binding:FragmentLoginBinding?=null
         binding.loginBt.setOnClickListener{
 
 
-           // findNavController().navigate(R.id.action_homeFragment_to_itemDetialsFragment)
+
 
 
             val phone=binding.numberInput.text.toString()
 
             if (phone.isNotEmpty()&& phone.length== 10){
 
+
                 val phoneNumber=PhoneInput(phone.toLong())
+
+                groceryViewModel.userPhoneNumber=phoneNumber.phone
+
                 groceryViewModel.generateOTP(phoneNumber)
 
                 findNavController().navigate(R.id.action_loginFragment_to_otpVarificationFragment)

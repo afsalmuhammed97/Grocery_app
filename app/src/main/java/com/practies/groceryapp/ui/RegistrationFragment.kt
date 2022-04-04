@@ -13,7 +13,7 @@ import com.practies.groceryapp.viewModels.GroceryViewModel
 import com.practies.groceryapp.databinding.FragmentRegistrationBinding
 import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
+
 class RegistrationFragment : Fragment() {
     private  var _binding: FragmentRegistrationBinding?=null
     private val binding get() = _binding!!
@@ -28,11 +28,10 @@ class RegistrationFragment : Fragment() {
         _binding= FragmentRegistrationBinding.inflate(inflater,container,false)
 
         binding.buttonNext.setOnClickListener{
-//                 val name=binding.editTextTextPersonName.text.toString()
-//                 val email=binding.textEmailAddress.text.toString()
-                     val name="sreeragh"
-                    val email="sreeragh@gmail.com"
-         //    groceryViewModel.userSignUp(requireContext(),name,email)
+                 val fullName=binding.editTextTextPersonName.text.toString()
+                 val userEmail=binding.textEmailAddress.text.toString()
+
+            groceryViewModel.userSignUp(requireContext(),fullName,userEmail)
         //  val message=   groceryViewModel.userSignUpResponse.value?.msg
 
             // Toast.makeText(context,message,Toast.LENGTH_SHORT).show()
@@ -48,7 +47,7 @@ class RegistrationFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         groceryViewModel.userSignUpResponse.observe(viewLifecycleOwner){
-            binding.textView10.text=it.msg
+            binding.textView14.text=it.status
         }
 
     }

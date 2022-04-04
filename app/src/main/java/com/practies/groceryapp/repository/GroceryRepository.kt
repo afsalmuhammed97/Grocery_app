@@ -16,7 +16,7 @@ class GroceryRepository @Inject constructor(private val apiService: ApiService) 
     suspend fun  generateOtp(phone:PhoneInput)=apiService.generateOtp(phone)
 
 
-   // suspend fun userSignUp(signUpData: SignUpData)=apiService.signUp(signUpData)
+    suspend fun userSignUp(signUpData: SignUpData)=apiService.signUp(signUpData)
 
   //  suspend fun  userSignIn(signInData: SignInData)=apiService.signIn(signInData)
 

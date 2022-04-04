@@ -36,10 +36,8 @@ class GroceryViewModel @Inject constructor(private val repository: GroceryReposi
     private val _otpResultData=MutableLiveData<OtpSuccess>()
     val otpResultData:LiveData<OtpSuccess>  get() = _otpResultData
 
-    val otpResponse= arrayListOf<String>()
 
-
-    //=SignUpResult( )
+    var userPhoneNumber:Long=111111111111
 
     var productId:Int =0
 
@@ -47,9 +45,7 @@ class GroceryViewModel @Inject constructor(private val repository: GroceryReposi
 
     private var generatedOtp:Int=0
 
-           init {
-            //   getAllProductsList()
-           }
+
 
      fun getAllProductsList(){
 
@@ -112,19 +108,15 @@ class GroceryViewModel @Inject constructor(private val repository: GroceryReposi
 
          val deviceId=getDeviceId(context)
          val deviceType=getSystemDetail()
-   //      val userSignUpData=  SignUpData(phoneNumber,name,email,deviceId,deviceType)
+         val userSignUpData=  SignUpData(userPhoneNumber,name,email,deviceId,deviceType)
 
          try {
               viewModelScope.launch {
 
-                  //val result= repository.userSignUp(userSignUpData)
-//                  _userSignUpResponse.value=result
-//
-//                  Log.i("SignUPQQQQQQ" ,result.msg)
-//                  Log.i("NAME",result.name)
-//
+                  val result= repository.userSignUp(userSignUpData)
+                  _userSignUpResponse.value=result
 
-              }
+         }
          }catch (e:Exception){
 
              Log.e("Exception",e.toString())

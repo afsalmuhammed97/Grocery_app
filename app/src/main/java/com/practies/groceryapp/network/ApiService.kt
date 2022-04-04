@@ -1,7 +1,5 @@
 package com.practies.groceryapp.network
 
-import android.content.pm.SigningInfo
-import com.google.gson.annotations.SerializedName
 import com.practies.groceryapp.model.*
 import com.practies.groceryapp.network.helper.Constants.CHECK_PHONE
 import com.practies.groceryapp.network.helper.Constants.GENERATE_OTP
@@ -9,7 +7,6 @@ import com.practies.groceryapp.network.helper.Constants.PRODUCT_DETAILS
 import com.practies.groceryapp.network.helper.Constants.PRODUCT_LIST
 import com.practies.groceryapp.network.helper.Constants.SIGN_IN
 import com.practies.groceryapp.network.helper.Constants.SIGN_UP
-import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.Field
 import retrofit2.http.GET

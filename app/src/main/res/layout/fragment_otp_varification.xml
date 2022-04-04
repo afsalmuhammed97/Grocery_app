@@ -50,7 +50,7 @@
         tools:ignore="TextContrastCheck" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/otpResentButton"
         android:layout_width="wrap_content"
         android:layout_height="35dp"
         android:layout_marginEnd="24dp"
@@ -72,9 +72,9 @@
         android:layout_marginEnd="8dp"
         android:text="@string/time"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/button2"
+        app:layout_constraintBottom_toBottomOf="@+id/otpResentButton"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
-        app:layout_constraintTop_toTopOf="@+id/button2" />
+        app:layout_constraintTop_toTopOf="@+id/otpResentButton" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -82,7 +82,7 @@
         android:layout_height="50dp"
         android:layout_marginBottom="32dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/otpResentButton"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
         app:layout_constraintStart_toStartOf="@+id/guideline_left">
 
@@ -209,7 +209,6 @@
         android:id="@+id/textView13"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"

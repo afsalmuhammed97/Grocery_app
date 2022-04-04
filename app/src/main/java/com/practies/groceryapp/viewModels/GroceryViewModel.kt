@@ -18,10 +18,10 @@ import java.io.IOException
 import javax.inject.Inject
 
 @HiltViewModel
+
 class GroceryViewModel @Inject constructor(private val repository: GroceryRepository):ViewModel(){
 
     private val _productList=MutableLiveData<List<Product>>()
-
     val productListLiveData:LiveData<List<Product>> get() =_productList
 
 
@@ -31,10 +31,13 @@ class GroceryViewModel @Inject constructor(private val repository: GroceryReposi
 
     private val  _userSignUpResponse=MutableLiveData<SignUpResult>()
 
-           val userSignUpResponse:LiveData<SignUpResult> get() = _userSignUpResponse
+    val userSignUpResponse:LiveData<SignUpResult> get() = _userSignUpResponse
 
     private val _otpResultData=MutableLiveData<OtpSuccess>()
     val otpResultData:LiveData<OtpSuccess>  get() = _otpResultData
+
+    private val _loginResultData= MutableLiveData<LoginResult>()
+    val loginResultData:LiveData<LoginResult> get()=_loginResultData
 
 
     var userPhoneNumber:Long=111111111111
@@ -128,6 +131,26 @@ class GroceryViewModel @Inject constructor(private val repository: GroceryReposi
 
 
      }
+
+
+    fun userLogIn(context: Context,phone:Long){
+
+        val deviceId=getDeviceId(context)
+        val deviceType=getSystemDetail()
+        val userSigInData=SignInData(deviceId,deviceType, phone)
+        try {
+            viewModelScope.launch {
+               val result=repository.userSignIn(userSigInData)
+
+               _loginResultData.value=result
+
+
+            }
+
+        }catch (e:Exception){
+            Log.i("Exception",e.toString())
+        }
+    }
 
 
 

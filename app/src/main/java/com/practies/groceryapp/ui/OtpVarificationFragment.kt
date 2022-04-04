@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -33,17 +34,22 @@ class OtpVarificationFragment : Fragment() {
         binding.sendVarificationButton.setOnClickListener{
 
 
-//
-            val otpInPut="${binding.otp1.text}${binding.otp2.text}${binding.otp3.text}${binding.otp4.text}${binding.otp5.text}${binding.otp6.text}"
+
+            val otpInPut="${binding.otp1.text}" +
+                    "${binding.otp2.text}" +
+                    "${binding.otp3.text}" +
+                    "${binding.otp4.text}" +
+                    "${binding.otp5.text}" +
+                    "${binding.otp6.text}"
 
 
-
-             ///   binding.textView14.text=otpInPut
 
                if ( otpInPut.equals( groceryViewModel.otpResultData.value?.otp)) {
 
 
                    findNavController().navigate(R.id.action_otpVarificationFragment_to_registrationFragment)
+               }else{
+                   Toast.makeText(context,"wrong enter please enter valid otp",Toast.LENGTH_SHORT).show()
                }
 
         }
@@ -51,15 +57,16 @@ class OtpVarificationFragment : Fragment() {
         return  binding.root
     }
 
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//
-//
-//
-//       groceryViewModel.otpResultData.observe(viewLifecycleOwner){
-//           binding.textView13.text=it.otp
-//       }
-//    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
+
+       groceryViewModel.otpResultData.observe(viewLifecycleOwner){
+           binding.textView13.text=it.otp
+
+       }
+    }
 
 
 

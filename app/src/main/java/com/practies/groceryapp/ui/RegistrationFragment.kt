@@ -1,16 +1,20 @@
 package com.practies.groceryapp.ui
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.practies.groceryapp.R
 import com.practies.groceryapp.viewModels.GroceryViewModel
 import com.practies.groceryapp.databinding.FragmentRegistrationBinding
+import com.practies.groceryapp.network.helper.Constants.SUCCESS
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -32,10 +36,10 @@ class RegistrationFragment : Fragment() {
                  val userEmail=binding.textEmailAddress.text.toString()
 
             groceryViewModel.userSignUp(requireContext(),fullName,userEmail)
-        //  val message=   groceryViewModel.userSignUpResponse.value?.msg
 
-            // Toast.makeText(context,message,Toast.LENGTH_SHORT).show()
-            findNavController().navigate(R.id.action_registrationFragment_to_homeFragment)
+
+
+           //
         }
 
 
@@ -43,11 +47,23 @@ class RegistrationFragment : Fragment() {
     }
 
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         groceryViewModel.userSignUpResponse.observe(viewLifecycleOwner){
-            binding.textView14.text=it.status
+
+//            Log.i("RESPONSE",it.status)
+//            Log.i("RESPONSE RESULT",it.msg.phone.toString())
+            val userId=it.msg.phone
+            Toast.makeText(context,it.status,Toast.LENGTH_SHORT).show()
+
+            if(it.status== SUCCESS){
+                Toast.makeText(context,"You registered successfully",Toast.LENGTH_SHORT).show()
+
+                findNavController().navigate(R.id.action_registrationFragment_to_homeFragment)
+            }
+
         }
 
     }

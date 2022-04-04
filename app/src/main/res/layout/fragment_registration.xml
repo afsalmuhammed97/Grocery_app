@@ -117,14 +117,25 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="SpeakableTextPresentCheck" />
 
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
-        app:layout_constraintStart_toStartOf="@+id/guideline_left"
-        app:layout_constraintTop_toTopOf="@+id/guideline_bottom" />
+<!--    <TextView-->
+<!--        android:id="@+id/textView14"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/guideline_right"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/guideline_left"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/guideline_bottom" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView15"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="16dp"-->
+
+<!--        app:layout_constraintBottom_toTopOf="@+id/textView14"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/guideline_right"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/guideline_left"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/guideline_bottom" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

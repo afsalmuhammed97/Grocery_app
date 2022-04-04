@@ -9,4 +9,5 @@ object Constants {
     const val GENERATE_OTP="get_otp"
     const val PRODUCT_LIST="products"
     const val  PRODUCT_DETAILS="product_detail"
+    const val SUCCESS="success"
 }

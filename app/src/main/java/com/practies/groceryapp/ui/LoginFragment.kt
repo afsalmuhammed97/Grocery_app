@@ -1,6 +1,7 @@
 package com.practies.groceryapp.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +14,7 @@ import com.practies.groceryapp.R
 import com.practies.groceryapp.viewModels.GroceryViewModel
 import com.practies.groceryapp.databinding.FragmentLoginBinding
 import com.practies.groceryapp.model.PhoneInput
+import com.practies.groceryapp.network.helper.Constants.SUCCESS
 import dagger.hilt.android.AndroidEntryPoint
 
 class LoginFragment : Fragment() {
@@ -21,57 +23,60 @@ private  var _binding:FragmentLoginBinding?=null
     private val binding get() = _binding!!
 
     private val groceryViewModel by  activityViewModels<GroceryViewModel>()
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
 
         _binding= FragmentLoginBinding.inflate(inflater,container,false)
 
 
-
-
         binding.loginBt.setOnClickListener{
+            loginOrGaneratOtp()
+        }
+
+        return  binding.root
+    }
 
 
 
+    fun loginOrGaneratOtp(){
+
+        val phone=binding.numberInput.text.toString()
+
+        if (phone.isNotEmpty()&& phone.length== 10){
 
 
-            val phone=binding.numberInput.text.toString()
+            val phoneNumber=PhoneInput(phone.toLong())
 
-            if (phone.isNotEmpty()&& phone.length== 10){
+            groceryViewModel.userLogIn(requireContext(),phone.toLong())
+
+            groceryViewModel.userPhoneNumber=phoneNumber.phone
 
 
-                val phoneNumber=PhoneInput(phone.toLong())
+                groceryViewModel.loginResultData.observe(viewLifecycleOwner){
 
-                groceryViewModel.userPhoneNumber=phoneNumber.phone
 
-                groceryViewModel.generateOTP(phoneNumber)
+                    if (it.status ==SUCCESS){
+                        findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+                    }else{
 
-                findNavController().navigate(R.id.action_loginFragment_to_otpVarificationFragment)
+                        groceryViewModel.generateOTP(phoneNumber)
+                        findNavController().navigate(R.id.action_loginFragment_to_otpVarificationFragment)
+                    }
 
-            }
+
+                }
 
 
         }
 
 
-
-   return  binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        groceryViewModel.otpResultData.observe(viewLifecycleOwner){
-            binding.textView11.text=it.msg
-
-            binding.textView12.text=it.status
-
-        }
 
 
-    }
+
+
 
     override fun onResume() {
         super.onResume()

@@ -1,6 +1,7 @@
 package com.practies.groceryapp.network
 
 import android.content.pm.SigningInfo
+import com.google.gson.annotations.SerializedName
 import com.practies.groceryapp.model.*
 import com.practies.groceryapp.network.helper.Constants.CHECK_PHONE
 import com.practies.groceryapp.network.helper.Constants.GENERATE_OTP
@@ -17,7 +18,7 @@ import retrofit2.http.POST
 interface ApiService {
 
     @POST(GENERATE_OTP)
-    suspend fun generateOtp(@Body phone:Long):Response<List<String>>
+    suspend fun generateOtp( @Body phone:PhoneInput):OtpSuccess       //OtpFailier
 
 
      @POST(CHECK_PHONE)

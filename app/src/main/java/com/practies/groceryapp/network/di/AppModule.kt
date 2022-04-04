@@ -30,7 +30,7 @@ object AppModule{
         retrofit.create(ApiService::class.java)
 
 
-    @Singleton
+   // @Singleton
     @Provides
     fun provideRepository(apiService: ApiService)=GroceryRepository(apiService)
 

@@ -1,17 +1,15 @@
-package com.practies.groceryapp.Ui
+package com.practies.groceryapp.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.practies.groceryapp.R
-import com.practies.groceryapp.ViewModels.GroceryViewModel
-import com.practies.groceryapp.databinding.FragmentOtpVarificationBinding
+import com.practies.groceryapp.viewModels.GroceryViewModel
 import com.practies.groceryapp.databinding.FragmentRegistrationBinding
 import dagger.hilt.android.AndroidEntryPoint
 

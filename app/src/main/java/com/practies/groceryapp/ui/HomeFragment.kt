@@ -1,22 +1,21 @@
-package com.practies.groceryapp.Ui
+package com.practies.groceryapp.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.practies.groceryapp.R
-import com.practies.groceryapp.ViewModels.GroceryViewModel
+import com.practies.groceryapp.viewModels.GroceryViewModel
 import com.practies.groceryapp.adapters.GroceryRecyclerAdapter
 import com.practies.groceryapp.databinding.FragmentHomeBinding
 import com.practies.groceryapp.interfacess.OnItemClickListeners
 import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
+//@AndroidEntryPoint
 class HomeFragment : Fragment(),OnItemClickListeners {
 
 private  var _binding: FragmentHomeBinding?=null

@@ -1,4 +1,4 @@
-package com.practies.groceryapp.ViewModels
+package com.practies.groceryapp.viewModels
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -33,8 +33,8 @@ class GroceryViewModel @Inject constructor(private val repository: GroceryReposi
 
            val userSignUpResponse:LiveData<SignUpResult> get() = _userSignUpResponse
 
-    private val _otpResultData=MutableLiveData<OtpResult>()
-    val otpResultData:LiveData<OtpResult>  get() = _otpResultData
+    private val _otpResultData=MutableLiveData<OtpSuccess>()
+    val otpResultData:LiveData<OtpSuccess>  get() = _otpResultData
 
     val otpResponse= arrayListOf<String>()
 
@@ -42,7 +42,9 @@ class GroceryViewModel @Inject constructor(private val repository: GroceryReposi
     //=SignUpResult( )
 
     var productId:Int =0
-    private val phoneNumber =8606336176
+
+
+
     private var generatedOtp:Int=0
 
            init {
@@ -65,15 +67,16 @@ class GroceryViewModel @Inject constructor(private val repository: GroceryReposi
         }
     }
 
-    fun  generateOTP(){              //phone:Long){
+    fun  generateOTP(phone:PhoneInput){              //phone:Long){
 
         try {
             viewModelScope.launch {
 
-                val data = repository.generateOtp(phoneNumber)
+                val data = repository.generateOtp(phone)
 
-               //   _otpResultData.value=data.body()[0]
-             //   otpResponse.addAll(data.body().)
+                 _otpResultData.value=data
+
+
             }
 
         }catch (e:Exception){
@@ -109,7 +112,7 @@ class GroceryViewModel @Inject constructor(private val repository: GroceryReposi
 
          val deviceId=getDeviceId(context)
          val deviceType=getSystemDetail()
-         val userSignUpData=  SignUpData(phoneNumber,name,email,deviceId,deviceType)
+   //      val userSignUpData=  SignUpData(phoneNumber,name,email,deviceId,deviceType)
 
          try {
               viewModelScope.launch {

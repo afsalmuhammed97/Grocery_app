@@ -7,16 +7,19 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.practies.groceryapp.Ui.LoginFragment"
+        android:name="com.practies.groceryapp.ui.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_loginFragment_to_otpVarificationFragment"
             app:destination="@id/otpVarificationFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_otpVarificationFragment2"
+            app:destination="@id/otpVarificationFragment" />
     </fragment>
     <fragment
         android:id="@+id/otpVarificationFragment"
-        android:name="com.practies.groceryapp.Ui.OtpVarificationFragment"
+        android:name="com.practies.groceryapp.ui.OtpVarificationFragment"
         android:label="fragment_otp_varification"
         tools:layout="@layout/fragment_otp_varification" >
         <action
@@ -28,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/registrationFragment"
-        android:name="com.practies.groceryapp.Ui.RegistrationFragment"
+        android:name="com.practies.groceryapp.ui.RegistrationFragment"
         android:label="fragment_registration"
         tools:layout="@layout/fragment_registration" >
         <action
@@ -37,7 +40,7 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.practies.groceryapp.Ui.HomeFragment"
+        android:name="com.practies.groceryapp.ui.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -49,11 +52,9 @@
     </fragment>
     <fragment
         android:id="@+id/itemDetialsFragment"
-        android:name="com.practies.groceryapp.Ui.ItemDetailsFragment"
+        android:name="com.practies.groceryapp.ui.ItemDetailsFragment"
         android:label="fragment_item_detials"
         tools:layout="@layout/fragment_item_detials" >
-        <argument
-            android:name="ProductId"
-            app:argType="integer" />
+
     </fragment>
 </navigation>

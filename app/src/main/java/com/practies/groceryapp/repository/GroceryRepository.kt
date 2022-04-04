@@ -1,5 +1,6 @@
 package com.practies.groceryapp.repository
 
+import com.practies.groceryapp.model.PhoneInput
 import com.practies.groceryapp.model.SignInData
 import com.practies.groceryapp.model.SignUpData
 import com.practies.groceryapp.network.ApiService
@@ -12,7 +13,7 @@ class GroceryRepository @Inject constructor(private val apiService: ApiService) 
 
    // suspend fun getProductDetails(productId:Int)=apiService.getProductDetails(productId)
 
-    suspend fun  generateOtp(phone:Long)=apiService.generateOtp(phone)
+    suspend fun  generateOtp(phone:PhoneInput)=apiService.generateOtp(phone)
 
 
    // suspend fun userSignUp(signUpData: SignUpData)=apiService.signUp(signUpData)

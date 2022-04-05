@@ -63,7 +63,7 @@ private val groceryViewModel:GroceryViewModel by activityViewModels ()
 
 
 
-        groceryViewModel.productId= groceryAdapter.differ.currentList[Position].product_id
+        groceryViewModel.selectedProductId= groceryAdapter.differ.currentList[Position].product_id
 
         // val action=HomeFragmentDirections.actionHomeFragmentToItemDetialsFragment(itemId)
 

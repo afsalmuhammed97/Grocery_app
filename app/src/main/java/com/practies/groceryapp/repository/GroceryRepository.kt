@@ -11,7 +11,7 @@ class GroceryRepository @Inject constructor(private val apiService: ApiService) 
 
     suspend fun getAllProducts()=apiService.getAllProducts()
 
-   // suspend fun getProductDetails(productId:Int)=apiService.getProductDetails(productId)
+   suspend fun getProductDetails(productId:Int)=apiService.getProductDetails(productId)
 
     suspend fun  generateOtp(phone:PhoneInput)=apiService.generateOtp(phone)
 

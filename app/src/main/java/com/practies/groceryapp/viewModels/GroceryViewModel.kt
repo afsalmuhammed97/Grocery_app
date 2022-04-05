@@ -23,11 +23,14 @@ class GroceryViewModel @Inject constructor(private val repository: GroceryReposi
 
     private val _productList=MutableLiveData<List<Product>>()
     val productListLiveData:LiveData<List<Product>> get() =_productList
+var detailsOfProduct=MutableLiveData<List<String>>()
 
 
-    private val _productDetails=MutableLiveData<Detail>()
 
-    val productDetailsLiveData:LiveData<Detail> get() =_productDetails
+
+    private val _productDetails=MutableLiveData<ProductDetailsData>()
+
+    val productDetailsLiveData:LiveData<ProductDetailsData> get() =_productDetails
 
     private val  _userSignUpResponse=MutableLiveData<SignUpResult>()
 
@@ -42,11 +45,11 @@ class GroceryViewModel @Inject constructor(private val repository: GroceryReposi
 
     var userPhoneNumber:Long=111111111111
 
-    var productId:Int =0
+    var selectedProductId:Int =0
 
 
 
-    private var generatedOtp:Int=0
+//    private var generatedOtp:Int=0
 
 
 
@@ -57,7 +60,7 @@ class GroceryViewModel @Inject constructor(private val repository: GroceryReposi
                 val result=repository.getAllProducts()
 
                 _productList.value=result.products
-//                Log.i("Msg",result.msg)
+
                 Log.i("result",result.products.toString())
             }
 
@@ -86,15 +89,16 @@ class GroceryViewModel @Inject constructor(private val repository: GroceryReposi
     }
 
 
-     fun getProductDetails(){
+     fun getProductDetails(productId:Int ){
 
         try {
             viewModelScope.launch {
-              //  val result=repository.getProductDetails(productId)
+                val result=repository.getProductDetails(productId)
 
-               // _productDetails.value=result.details
+                  //  detailsOfProduct.value=result
+                _productDetails.value=result
 
-             //   Log.i("Check",result.msg)
+                  //   Log.i("Check",result.msg)
                   //  Log.i("Result",result.body().description)
             }
 

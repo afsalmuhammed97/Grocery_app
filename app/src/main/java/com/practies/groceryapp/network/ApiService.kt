@@ -31,8 +31,8 @@ interface ApiService {
     suspend fun getAllProducts():ProductData
 
        @POST(PRODUCT_DETAILS)
-    suspend fun getProductDetails(@Body productId:Int):ProductDetails
-     //  {"phone":8606336176,"full_name":"afsal","device_id":"androdid12345","device_type":"redme5"}
+    suspend fun getProductDetails(@Body productId:Int):ProductDetailsData
+
 
 
 

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
 import com.practies.groceryapp.viewModels.GroceryViewModel
 import com.practies.groceryapp.databinding.FragmentItemDetialsBinding
 
@@ -24,9 +25,9 @@ class ItemDetailsFragment : Fragment() {
 
       _binding= FragmentItemDetialsBinding.inflate(inflater,container,false)
 
-      //  val itemId=args.productId
+             binding.productPriseText.text=groceryViewModel.selectedProductId.toString()
 
-        groceryViewModel.getProductDetails()
+        groceryViewModel.getProductDetails(groceryViewModel.selectedProductId)
 
         return binding.root
     }
@@ -34,13 +35,25 @@ class ItemDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+             groceryViewModel.detailsOfProduct.observe(viewLifecycleOwner){
 
+                 binding.productNameText.text=it[0]
+                 binding.productPriseText.text=it[1]
 
-         groceryViewModel.productDetailsLiveData.observe(viewLifecycleOwner){
-             binding.productNameText.text=it.name
-             binding.productPriseText.text=it.price
+             }
 
-        }
+//         groceryViewModel.productDetailsLiveData.observe(viewLifecycleOwner){
+//             binding.productNameText.text=it.details[0].name
+//             binding.productPriseText.text=it.details[0].price
+//
+//             Glide
+//                 .with(requireContext())
+//                 .load(it.details[0].image)
+//                 .centerCrop()
+//                 // .placeholder(R.drawable.loading_spinner)
+//                 .into(binding.productImage)
+//
+//        }
 
 
 

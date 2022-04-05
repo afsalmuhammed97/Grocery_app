@@ -135,7 +135,7 @@ class GroceryViewModel @Inject constructor(private val repository: GroceryReposi
 
     fun userLogIn(context: Context,phone:Long){
 
-        val deviceId=getDeviceId(context)
+        val deviceId= getDeviceId(context)
         val deviceType=getSystemDetail()
         val userSigInData=SignInData(deviceId,deviceType, phone)
         try {

@@ -1,5 +1,6 @@
 package com.practies.groceryapp.ui
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -55,8 +56,13 @@ private  var _binding:FragmentLoginBinding?=null
 
                 groceryViewModel.loginResultData.observe(viewLifecycleOwner){
 
+  //                   binding.textView11.text=it.status
+//                    binding.textView12.text=it.msg
+                    binding.numberInput.text=null
 
-                    if (it.status ==SUCCESS){
+                    if (it.status ==SUCCESS   ){   //&&userIdCheck(it.user_id.toString()) ){
+
+
                         findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
                     }else{
 
@@ -73,7 +79,14 @@ private  var _binding:FragmentLoginBinding?=null
 
     }
 
+    private fun userIdCheck(loginUserId:String):Boolean{
 
+        val sharedPref=requireActivity().getSharedPreferences("userRegistration", Context.MODE_PRIVATE)
+       val userId= sharedPref.getString("userId","notRegistered")
+
+        return loginUserId == userId
+
+    }
 
 
 

@@ -1,6 +1,7 @@
 package com.practies.groceryapp.ui
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -39,7 +40,7 @@ class RegistrationFragment : Fragment() {
 
 
 
-           //
+
         }
 
 
@@ -53,15 +54,15 @@ class RegistrationFragment : Fragment() {
 
         groceryViewModel.userSignUpResponse.observe(viewLifecycleOwner){
 
-//            Log.i("RESPONSE",it.status)
-//            Log.i("RESPONSE RESULT",it.msg.phone.toString())
-            val userId=it.msg.phone
-            Toast.makeText(context,it.status,Toast.LENGTH_SHORT).show()
-
+//
             if(it.status== SUCCESS){
                 Toast.makeText(context,"You registered successfully",Toast.LENGTH_SHORT).show()
 
+                saveUserId(it.msg.phone[5])
+
                 findNavController().navigate(R.id.action_registrationFragment_to_homeFragment)
+            }else{
+                Toast.makeText(context,it.msg.phone.toString(),Toast.LENGTH_SHORT).show()
             }
 
         }
@@ -76,6 +77,15 @@ class RegistrationFragment : Fragment() {
     override fun onPause() {
         super.onPause()
         (activity as AppCompatActivity?)!!.supportActionBar!!.show()
+    }
+
+
+    private fun saveUserId(userId:String){
+        val sharedPref=requireActivity().getSharedPreferences("userRegistration", Context.MODE_PRIVATE)
+        val editor=sharedPref.edit()
+        editor.putString("userId",userId)
+       // editor.putBoolean("Finished",true)
+        editor.apply()
     }
 
 
